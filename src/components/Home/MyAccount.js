@@ -10,7 +10,7 @@ import firebase from '../../../config'
 import TextInput from '../TextInput'
 const database = firebase.database()
 
-const MyAccount = () => {
+const MyAccount = ({navigation}) => {
 
     const [name, setName] = useState({ value: '', error: '' })
     const [surname, setSurname] = useState({ value: '', error: '' })
@@ -26,7 +26,10 @@ const MyAccount = () => {
             telephone: tel.value
 
         })
-
+        navigation.reset({
+            index: 0,
+            routes: [{ name: 'ListProfile' }],
+          })
 
     }
     return (
